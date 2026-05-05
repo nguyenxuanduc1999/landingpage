@@ -1,73 +1,55 @@
-# React + TypeScript + Vite
+# Xuan Duc Nguyen – Cinematic Portfolio & Landing Page
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A high-fidelity, cinematic React landing page featuring "liquid-glass" aesthetics, continuous light refraction effects, and dynamic scroll animations. This project serves as a digital portfolio and creative studio showcase, designed to feel premium, moody, and deeply immersive.
 
-Currently, two official plugins are available:
+## ✨ Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- **Liquid-Glass UI System:** Custom CSS implementations of frosted glass (`.liquid-glass`, `.liquid-glass-strong`) that use luminosity blending, backdrop filters, and gradient masks to create seamless, iridescent light refractions.
+- **Cinematic Video Integration:** Full-bleed background videos mapped with smooth gradient masking to eliminate seams and create a continuous visual flow across sections.
+- **Framer Motion Animations:** Custom staggered pull-up text, word-by-word blur reveals (`BlurText`), and scroll-linked opacity transformations.
+- **Modern Typography:** Carefully paired Google Fonts (`Almarai` for body text and `Instrument Serif` for beautiful italicized headings).
+- **Responsive Layouts:** Perfectly balanced padding, negative space, and responsive grids optimized for all screen sizes.
 
-## React Compiler
+## 🛠 Technologies Used
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **Framework:** React 18
+- **Build Tool:** Vite
+- **Styling:** Tailwind CSS 3 (with custom layers and utility extensions)
+- **Animation:** Framer Motion
+- **Icons:** Lucide React & Material UI SVGs
+- **Language:** TypeScript
 
-## Expanding the ESLint configuration
+## 🚀 Getting Started
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### Prerequisites
+Make sure you have [Node.js](https://nodejs.org/) installed on your machine.
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+### Installation
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/nguyenxuanduc1999/landingpage.git
+   cd landingpage
+   ```
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+3. Start the development server:
+   ```bash
+   npm run dev
+   ```
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+4. Open your browser and visit `http://localhost:5173` to view the application.
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## 🎨 Design Philosophy
+
+The project leans heavily on the "Aetheris Voyage" aesthetic: avoiding flat, generic colors in favor of a warm cream palette (`#DEDBC8`) against deep blacks. It avoids standard placeholder components by relying on highly textured fractal noise overlays, exact visual symmetry, and continuous fluid backgrounds.
+
+## 👤 About the Author
+**Xuan Duc Nguyen** is a self-taught director with expertise in color grading, visual effects, and narrative design. He has worked with top-tier production houses including Parallax (Berlin) and Noir Studio (Paris), creating award-winning work across the globe.
+
+---
+*Built with React & Vite.*
