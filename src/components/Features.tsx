@@ -27,7 +27,7 @@ export const Features: React.FC = () => {
         loop
         muted
         playsInline
-        className="absolute inset-0 w-full h-full object-cover z-0"
+        className="absolute inset-0 w-full h-full object-cover z-0 [-webkit-mask-image:linear-gradient(to_bottom,transparent,black_15%,black_85%,transparent)] [mask-image:linear-gradient(to_bottom,transparent,black_15%,black_85%,transparent)]"
       >
         <source
           src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260418_094631_d30ab262-45ee-4b7d-99f3-5d5848c8ef13.mp4"
@@ -35,8 +35,7 @@ export const Features: React.FC = () => {
         />
       </video>
 
-      {/* Content */}
-      <div className="relative z-10 px-8 md:px-16 lg:px-20 pt-24 pb-10 flex flex-col min-h-screen">
+      <div className="relative z-10 px-8 md:px-16 lg:px-20 pt-24 pb-24 flex flex-col min-h-screen">
         {/* Header */}
         <div className="mb-auto">
           <div className="text-sm font-body text-white/80 mb-6">// Capabilities</div>

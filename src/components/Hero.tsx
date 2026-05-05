@@ -35,8 +35,9 @@ export const Hero: React.FC = () => {
         {/* Navbar */}
         <div className="fixed top-4 left-0 right-0 px-8 lg:px-16 z-50 flex items-center justify-between">
           {/* Left: Logo */}
+
           <div className="w-12 h-12 liquid-glass rounded-full flex items-center justify-center">
-            <span className="font-serif italic text-2xl text-white mt-1">a</span>
+            <span className="font-serif italic text-2xl text-white mt-1">XDN</span>
           </div>
 
           {/* Center: Links (desktop only) */}
@@ -76,7 +77,7 @@ export const Hero: React.FC = () => {
           </motion.div>*/}
 
           <BlurText
-            text="Venture Past Our Sky Across the Universe"
+            text="Welcome to Here My Sites"
             className="text-6xl md:text-7xl lg:text-[5.5rem] font-serif italic text-white leading-[0.8] max-w-2xl tracking-[-4px]"
           />
 
@@ -142,6 +143,7 @@ export const Hero: React.FC = () => {
           variants={fadeUpVariant}
           className="flex flex-col items-center gap-4 pb-8 pt-8"
         >
+          {/*
           <div className="liquid-glass rounded-full px-3.5 py-1 text-xs font-medium text-white">
             Collaborating with top aerospace pioneers globally
           </div>
@@ -156,6 +158,7 @@ export const Hero: React.FC = () => {
             <span className="opacity-50">·</span>
             <span>Zeno</span>
           </div>
+          */}
         </motion.div>
       </div>
     </section>
