@@ -1,10 +1,11 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import type { Variants } from 'framer-motion';
 import { ArrowUpRight, Play, Clock, Globe } from 'lucide-react';
 import { BlurText } from './BlurText';
 
 export const Hero: React.FC = () => {
-  const fadeUpVariant = {
+  const fadeUpVariant: Variants = {
     hidden: { filter: 'blur(10px)', opacity: 0, y: 20 },
     visible: (customDelay: number) => ({
       filter: 'blur(0px)',
