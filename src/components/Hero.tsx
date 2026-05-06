@@ -26,7 +26,8 @@ export const Hero: React.FC = () => {
           className="w-full h-full object-cover object-top"
         >
           <source
-            src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260418_080021_d598092b-c4c2-4e53-8e46-94cf9064cd50.mp4"
+            // src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260418_080021_d598092b-c4c2-4e53-8e46-94cf9064cd50.mp4"
+            src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260405_170732_8a9ccda6-5cff-4628-b164-059c500a2b41.mp4"
             type="video/mp4"
           />
         </video>
@@ -78,7 +79,7 @@ export const Hero: React.FC = () => {
           </motion.div>*/}
 
           <BlurText
-            text="Welcome to Here My Sites"
+            text="Welcome to my sites"
             className="text-6xl md:text-7xl lg:text-[5.5rem] font-serif italic text-white leading-[0.8] max-w-2xl tracking-[-4px]"
           />
 
