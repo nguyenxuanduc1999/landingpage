@@ -15,7 +15,7 @@ export const About: React.FC = () => {
             segments={[
               { text: "I am Xuan Duc,", className: "font-normal text-primary" },
               { text: "a Software Engineer.", className: "font-serif italic text-primary" },
-              { text: "I have skills in software engineering, full-stack web development, and general AI.", className: "font-normal text-primary" }
+              { text: "I have skills in software engineering, full-stack web development, and Gen-AI.", className: "font-normal text-primary" }
             ]}
             className="justify-center"
           />
