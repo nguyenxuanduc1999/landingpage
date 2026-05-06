@@ -44,6 +44,26 @@ Make sure you have [Node.js](https://nodejs.org/) installed on your machine.
 
 4. Open your browser and visit `http://localhost:5173` to view the application.
 
+## 🔁 CI/CD
+
+GitHub Actions is configured for automated checks and deployment:
+
+- **CI (`.github/workflows/ci.yml`)**
+  - Runs on every pull request and on pushes to `main`
+  - Installs dependencies, runs ESLint, and builds the project
+- **CD (`.github/workflows/firebase-hosting-merge.yml`)**
+  - Runs on pushes to `main`
+  - Installs dependencies, runs ESLint, builds, and deploys to Firebase Hosting
+- **PR Preview (`.github/workflows/firebase-hosting-pr-preview.yml`)**
+  - Runs on pull requests from this repository
+  - Installs dependencies, runs ESLint, builds, and deploys a 7-day Firebase preview channel (`pr-<PR_NUMBER>`)
+
+### Required GitHub Secrets
+
+For deployment to Firebase Hosting, add this repository secret:
+
+- `FIREBASE_SERVICE_ACCOUNT_AI_PROJECT_BFDA4`: Firebase service account JSON for project `ai-project-bfda4`
+
 ## 🎨 Design Philosophy
 
 The project leans heavily on the "Aetheris Voyage" aesthetic: avoiding flat, generic colors in favor of a warm cream palette (`#DEDBC8`) against deep blacks. It avoids standard placeholder components by relying on highly textured fractal noise overlays, exact visual symmetry, and continuous fluid backgrounds.
