@@ -35,12 +35,11 @@ export const Hero: React.FC = () => {
 
       <div className="relative z-10 flex flex-col min-h-screen">
         {/* Navbar */}
-        <div className="fixed top-4 left-0 right-0 px-8 lg:px-16 z-50 flex items-center justify-between">
+        <div className="fixed top-4 left-0 right-0 px-8 lg:px-16 z-50 flex items-center justify-center">
           {/* Left: Logo */}
-
-          <div className="w-12 h-12 liquid-glass rounded-full flex items-center justify-center">
+          {/* <div className="w-12 h-12 liquid-glass rounded-full flex items-center justify-center">
             <span className="font-serif italic text-2xl text-white mt-1">XDN</span>
-          </div>
+          </div> */}
 
           {/* Center: Links (desktop only) */}
           <div className="hidden md:flex liquid-glass rounded-full px-1.5 py-1.5 items-center">
@@ -62,7 +61,7 @@ export const Hero: React.FC = () => {
           </div>
 
           {/* Right: Spacer */}
-          <div className="w-12 h-12 invisible"></div>
+          {/* <div className="w-12 h-12 invisible"></div> */}
         </div>
 
         {/* Hero content */}
@@ -79,7 +78,7 @@ export const Hero: React.FC = () => {
           </motion.div>*/}
 
           <BlurText
-            text="Welcome to my sites"
+            text="Welcome to my website"
             className="text-6xl md:text-7xl lg:text-[5.5rem] font-serif italic text-white leading-[0.8] max-w-2xl tracking-[-4px]"
           />
 
@@ -90,7 +89,7 @@ export const Hero: React.FC = () => {
             variants={fadeUpVariant}
             className="mt-6 text-sm md:text-base text-white max-w-2xl font-light leading-tight"
           >
-            Discover the universe in ways once unimaginable. Our pioneering vessels and breakthrough engineering bring deep-space exploration within reach—secure and extraordinary.
+            Nobody is truly perfect, so I am working hard to improve myself every day and become a better person—free from drama and scandal. Right now, I am living as if today could be my last. That’s partly why I always say, 'Thank you, for every morning that I wake up."
           </motion.p>
 
           <motion.div

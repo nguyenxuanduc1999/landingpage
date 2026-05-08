@@ -96,15 +96,15 @@ const defaultLegalLinks = [
 
 export const Footer = ({
   logo = {
-    url: "https://xdn74.com",
-    src: "https://lh3.googleusercontent.com/sitesv/AA5AbUB6chkzCJ1XJ2UGc21PZRqXuAGgv33hq_RhcDLwuPV1Gsq2Bto610LzT7WvhdqnBQ3qLDfxbCj5wJ4-FVEdX1-J8bKEx5Vx6yp2jiOcNNeGHellOKotOTFeLUZ90d7zpL59Yzz8L6mOC2UhsCVghJ_REENdtS0UaPkNnSbzaeryCtsoTSm9-lsP7N2cqJgrP_hD8_uIqTmv70I4q0M5IFT5ytxuoTh03OSzmHA=w1280",
+    url: "https://www.xdn74.com",
+    src: "./public/logoXDN.png",
     alt: "logo",
     title: "Xuan Duc Nguyen",
   },
   sections = defaultSections,
-  description = "A collection of components for your startup business or side project.",
+  description = "A collection of my projects and my skills.",
   socialLinks = defaultSocialLinks,
-  copyright = `© ${new Date().getFullYear()} Chillbion. All rights reserved.`,
+  copyright = `© ${new Date().getFullYear()} XDN. All rights reserved.`,
   legalLinks = defaultLegalLinks,
 }: Footer7Props) => {
   return (
