@@ -2,6 +2,7 @@
 import { Hero } from './components/Hero';
 import { About } from './components/About';
 import { Features } from './components/Features';
+import { Footer } from './components/ui/footer';
 
 function App() {
   return (
@@ -9,6 +10,7 @@ function App() {
       <Hero />
       <About />
       <Features />
+      <Footer />
     </div>
   );
 }
