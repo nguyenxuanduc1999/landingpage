@@ -11,156 +11,254 @@ Determine the default path for components and styles.
 If default path for components is not /components/ui, provide instructions on why it's important to create this folder
 Copy-paste this component to /components/ui folder:
 ```tsx
-footer.tsx
-import { useState } from "react";
-import { cn } from "@/lib/utils";
+progressive-blur.tsx
+'use client';
+import { cn } from '@/lib/utils';
+import { HTMLMotionProps, motion } from 'motion/react';
 
-export const Component = () => {
-  const [count, setCount] = useState(0);
+export const GRADIENT_ANGLES = {
+  top: 0,
+  right: 90,
+  bottom: 180,
+  left: 270,
+};
+
+export type ProgressiveBlurProps = {
+  direction?: keyof typeof GRADIENT_ANGLES;
+  blurLayers?: number;
+  className?: string;
+  blurIntensity?: number;
+} & HTMLMotionProps<'div'>;
+
+export function ProgressiveBlur({
+  direction = 'bottom',
+  blurLayers = 8,
+  className,
+  blurIntensity = 0.25,
+  ...props
+}: ProgressiveBlurProps) {
+  const layers = Math.max(blurLayers, 2);
+  const segmentSize = 1 / (blurLayers + 1);
 
   return (
-    <div className={cn("flex flex-col items-center gap-4 p-4 rounded-lg")}>
-      <h1 className="text-2xl font-bold mb-2">Component Example</h1>
-      <h2 className="text-xl font-semibold">{count}</h2>
-      <div className="flex gap-2">
-        <button onClick={() => setCount((prev) => prev - 1)}>-</button>
-        <button onClick={() => setCount((prev) => prev + 1)}>+</button>
-      </div>
+    <div className={cn('relative', className)}>
+      {Array.from({ length: layers }).map((_, index) => {
+        const angle = GRADIENT_ANGLES[direction];
+        const gradientStops = [
+          index * segmentSize,
+          (index + 1) * segmentSize,
+          (index + 2) * segmentSize,
+          (index + 3) * segmentSize,
+        ].map(
+          (pos, posIndex) =>
+            `rgba(255, 255, 255, ${posIndex === 1 || posIndex === 2 ? 1 : 0}) ${pos * 100}%`
+        );
+
+        const gradient = `linear-gradient(${angle}deg, ${gradientStops.join(
+          ', '
+        )})`;
+
+        return (
+          <motion.div
+            key={index}
+            className='pointer-events-none absolute inset-0 rounded-[inherit]'
+            style={{
+              maskImage: gradient,
+              WebkitMaskImage: gradient,
+              backdropFilter: `blur(${index * blurIntensity}px)`,
+            }}
+            {...props}
+          />
+        );
+      })}
     </div>
   );
-};
+}
 
 
 demo.tsx
-import React from 'react';
-import { 
-  Brain, 
-  Facebook, 
-  Twitter, 
-  Linkedin, 
-  Github, 
-  Instagram,
-  Mail,
-  Phone,
-  MapPin
-} from 'lucide-react';
+import { InfiniteSlider } from '@/components/ui/infinite-slider';
+import { ProgressiveBlur } from '@/components/ui/progressive-blur';
 
-const Footer: React.FC = () => {
+const logos = [
+  {
+    id: "logo-2",
+    description: "Figma",
+    image: "https://www.shadcnblocks.com/images/block/logos/figma.svg",
+    className: "h-7 w-auto",
+  },
+  {
+    id: "logo-3",
+    description: "Next.js",
+    image: "https://www.shadcnblocks.com/images/block/logos/nextjs.svg",
+    className: "h-7 w-auto",
+  },
+  {
+    id: "logo-6",
+    description: "Supabase",
+    image: "https://www.shadcnblocks.com/images/block/logos/supabase.svg",
+    className: "h-7 w-auto",
+  },
+  {
+    id: "logo-8",
+    description: "Vercel",
+    image: "https://www.shadcnblocks.com/images/block/logos/vercel.svg",
+    className: "h-7 w-auto",
+  },
+];
+
+export function LogosSlider() {
   return (
-    <footer className="relative bg-gradient-to-br from-white via-gray-50 to-gray-100 pt-32 pb-12 overflow-hidden">
-      {/* Background patterns */}
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,#f0f0f0_1px,transparent_1px),linear-gradient(to_bottom,#f0f0f0_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]"></div>
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 via-purple-500/5 to-pink-500/5"></div>
-      </div>
-
-      <div className="max-w-7xl mx-auto px-4 md:px-6 relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16 max-w-7xl mx-auto">
-          <div className="group">
-            <div className="flex items-center mb-8">
-              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-500 to-purple-500 flex items-center justify-center text-white shadow-lg group-hover:scale-105 transition-transform duration-300">
-                <Brain className="h-6 w-6" />
-              </div>
-              <span className="ml-3 text-xl font-bold tracking-tight bg-gradient-to-r from-black via-gray-800 to-gray-600 bg-clip-text text-transparent">
-                Chillbion
-              </span>
-            </div>
-            <p className="text-gray-600 leading-relaxed mb-8">
-              Helping startups transform ideas into reality with cutting-edge technology solutions.
-            </p>
-            <div className="flex space-x-4">
-              {[
-                { icon: Facebook, href: "#" },
-                { icon: Twitter, href: "#" },
-                { icon: Linkedin, href: "#" },
-                { icon: Github, href: "#" },
-                { icon: Instagram, href: "#" }
-              ].map((social, idx) => (
-                <a 
-                  key={idx}
-                  href={social.href} 
-                  className="w-10 h-10 rounded-xl bg-white/90 border border-black/10 flex items-center justify-center text-gray-600 hover:bg-gradient-to-br hover:from-blue-500 hover:to-purple-500 hover:text-white hover:border-transparent transition-all duration-300 shadow-sm hover:shadow-lg"
-                >
-                  <social.icon size={18} />
-                </a>
-              ))}
-            </div>
+    <div className='relative h-[100px] w-full overflow-hidden'>
+      <InfiniteSlider 
+        className='flex h-full w-full items-center' 
+        duration={30}
+        gap={48}
+      >
+        {logos.map((logo) => (
+          <div 
+            key={logo.id} 
+            className='flex w-32 items-center justify-center'
+          >
+            <img
+              src={logo.image}
+              alt={logo.description}
+              className={logo.className}
+            />
           </div>
-
-          <div>
-            <h4 className="text-lg font-bold tracking-tight mb-6 bg-gradient-to-r from-black via-gray-800 to-gray-600 bg-clip-text text-transparent">Services</h4>
-            <ul className="space-y-4">
-              {[
-                "MVP Development",
-                "Full-Stack Development",
-                "AI Solutions",
-                "LLM Applications",
-                "Data Engineering"
-              ].map((service, idx) => (
-                <li key={idx}>
-                  <a href="#" className="text-gray-600 hover:text-black transition-colors duration-300 flex items-center group">
-                    <span className="w-1.5 h-1.5 rounded-full bg-gradient-to-r from-blue-500 to-purple-500 mr-2 opacity-0 group-hover:opacity-100 transition-opacity"></span>
-                    {service}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div>
-            <h4 className="text-lg font-bold tracking-tight mb-6 bg-gradient-to-r from-black via-gray-800 to-gray-600 bg-clip-text text-transparent">Company</h4>
-            <ul className="space-y-4">
-              {[
-                "About Us",
-                "Team",
-                "Case Studies",
-                "Blog",
-                "Careers"
-              ].map((item, idx) => (
-                <li key={idx}>
-                  <a href="#" className="text-gray-600 hover:text-black transition-colors duration-300 flex items-center group">
-                    <span className="w-1.5 h-1.5 rounded-full bg-gradient-to-r from-blue-500 to-purple-500 mr-2 opacity-0 group-hover:opacity-100 transition-opacity"></span>
-                    {item}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div>
-            <h4 className="text-lg font-bold tracking-tight mb-6 bg-gradient-to-r from-black via-gray-800 to-gray-600 bg-clip-text text-transparent">Contact</h4>
-            <ul className="space-y-4">
-              <li className="text-gray-600 flex items-center">
-                <MapPin className="w-5 h-5 mr-2 text-gray-400" />
-                Dhaka, Bangladesh
-              </li>
-              <li>
-                <a href="mailto:contact@chillbion.com" className="text-gray-600 hover:text-black transition-colors duration-300 flex items-center group">
-                  <Mail className="w-5 h-5 mr-2 text-gray-400" />
-                  contact@chillbion.com
-                </a>
-              </li>
-              <li>
-                <a href="tel:+18001234567" className="text-gray-600 hover:text-black transition-colors duration-300 flex items-center group">
-                  <Phone className="w-5 h-5 mr-2 text-gray-400" />
-                  +1 (800) 123-4567
-                </a>
-              </li>
-            </ul>
-          </div>
-        </div>
-
-        <div className="mt-24 pt-8 border-t border-black/10 text-center">
-          <p className="text-gray-500 text-sm font-medium">
-            © {new Date().getFullYear()} Chillbion. All rights reserved.
-          </p>
-        </div>
-      </div>
-    </footer>
+        ))}
+      </InfiniteSlider>
+      <ProgressiveBlur
+        className='pointer-events-none absolute top-0 left-0 h-full w-[200px]'
+        direction='left'
+        blurIntensity={1}
+      />
+      <ProgressiveBlur
+        className='pointer-events-none absolute top-0 right-0 h-full w-[200px]'
+        direction='right'
+        blurIntensity={1}
+      />
+    </div>
   );
+}
+```
+
+Copy-paste these files for dependencies:
+```tsx
+ibelick/infinite-slider
+'use client';
+import { cn } from '@/lib/utils';
+import { useMotionValue, animate, motion } from 'framer-motion';
+import { useState, useEffect } from 'react';
+import useMeasure from 'react-use-measure';
+
+type InfiniteSliderProps = {
+  children: React.ReactNode;
+  gap?: number;
+  duration?: number;
+  durationOnHover?: number;
+  direction?: 'horizontal' | 'vertical';
+  reverse?: boolean;
+  className?: string;
 };
 
-export default Footer;
+export function InfiniteSlider({
+  children,
+  gap = 16,
+  duration = 25,
+  durationOnHover,
+  direction = 'horizontal',
+  reverse = false,
+  className,
+}: InfiniteSliderProps) {
+  const [currentDuration, setCurrentDuration] = useState(duration);
+  const [ref, { width, height }] = useMeasure();
+  const translation = useMotionValue(0);
+  const [isTransitioning, setIsTransitioning] = useState(false);
+  const [key, setKey] = useState(0);
+
+  useEffect(() => {
+    let controls;
+    const size = direction === 'horizontal' ? width : height;
+    const contentSize = size + gap;
+    const from = reverse ? -contentSize / 2 : 0;
+    const to = reverse ? 0 : -contentSize / 2;
+
+    if (isTransitioning) {
+      controls = animate(translation, [translation.get(), to], {
+        ease: 'linear',
+        duration:
+          currentDuration * Math.abs((translation.get() - to) / contentSize),
+        onComplete: () => {
+          setIsTransitioning(false);
+          setKey((prevKey) => prevKey + 1);
+        },
+      });
+    } else {
+      controls = animate(translation, [from, to], {
+        ease: 'linear',
+        duration: currentDuration,
+        repeat: Infinity,
+        repeatType: 'loop',
+        repeatDelay: 0,
+        onRepeat: () => {
+          translation.set(from);
+        },
+      });
+    }
+
+    return controls?.stop;
+  }, [
+    key,
+    translation,
+    currentDuration,
+    width,
+    height,
+    gap,
+    isTransitioning,
+    direction,
+    reverse,
+  ]);
+
+  const hoverProps = durationOnHover
+    ? {
+        onHoverStart: () => {
+          setIsTransitioning(true);
+          setCurrentDuration(durationOnHover);
+        },
+        onHoverEnd: () => {
+          setIsTransitioning(true);
+          setCurrentDuration(duration);
+        },
+      }
+    : {};
+
+  return (
+    <div className={cn('overflow-hidden', className)}>
+      <motion.div
+        className='flex w-max'
+        style={{
+          ...(direction === 'horizontal'
+            ? { x: translation }
+            : { y: translation }),
+          gap: `${gap}px`,
+          flexDirection: direction === 'horizontal' ? 'row' : 'column',
+        }}
+        ref={ref}
+        {...hoverProps}
+      >
+        {children}
+        {children}
+      </motion.div>
+    </div>
+  );
+}
+
+```
+
+Install NPM dependencies:
+```bash
+motion, framer-motion, react-use-measure
 ```
 
 Implementation Guidelines

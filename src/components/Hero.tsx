@@ -1,7 +1,8 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import type { Variants } from 'framer-motion';
-import { ArrowUpRight, Play, Clock, Globe } from 'lucide-react';
+import { ArrowUpRight, Play } from 'lucide-react';
+import { LogosSlider } from '@/components/ui/logos-slider';
 import { BlurText } from './BlurText';
 
 const NAV_ITEMS = ['Home', 'Voyages', 'Worlds', 'Innovation', 'Plan Launch'] as const;
@@ -135,25 +136,9 @@ export const Hero: React.FC = () => {
             initial="hidden"
             animate="visible"
             variants={fadeUpVariant}
-            className="flex flex-col sm:flex-row items-center sm:items-stretch gap-4 mt-10 sm:mt-12 w-full max-w-[28rem] sm:max-w-none"
+            className="mt-10 sm:mt-12 w-full max-w-5xl mx-auto"
           >
-            {/* Card 1 */}
-            <div className="liquid-glass p-5 w-full max-w-[220px] sm:w-[220px] rounded-[1.25rem] text-left flex flex-col justify-between">
-              <Clock className="w-7 h-7 text-white mb-6" strokeWidth={1.5} />
-              <div>
-                <div className="font-serif italic text-white text-4xl tracking-[-1px] leading-none">34.5 Min</div>
-                <div className="text-xs text-white/80 font-light mt-2">Average Videos Watch Time</div>
-              </div>
-            </div>
-
-            {/* Card 2 */}
-            <div className="liquid-glass p-5 w-full max-w-[220px] sm:w-[220px] rounded-[1.25rem] text-left flex flex-col justify-between">
-              <Globe className="w-7 h-7 text-white mb-6" strokeWidth={1.5} />
-              <div>
-                <div className="font-serif italic text-white text-4xl tracking-[-1px] leading-none">2.8B+</div>
-                <div className="text-xs text-white/80 font-light mt-2">Users Across the Globe</div>
-              </div>
-            </div>
+            <LogosSlider />
           </motion.div>
         </div>
 
