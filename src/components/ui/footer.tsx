@@ -1,6 +1,7 @@
 import React from "react"
 import { Mail, MapPin, Phone } from "lucide-react"
 import { FaFacebook, FaInstagram, FaLinkedin } from "react-icons/fa"
+import { SkyToggle } from "./sky-toggle"
 
 interface Footer7Props {
   logo?: {
@@ -87,6 +88,7 @@ const defaultSocialLinks = [
   { icon: <FaFacebook className="size-5" />, href: "https://www.facebook.com/xdn74/", label: "Facebook" },
   // { icon: <FaTwitter className="size-5" />, href: "#", label: "Twitter" },
   { icon: <FaLinkedin className="size-5" />, href: "https://www.linkedin.com/in/xdn/", label: "LinkedIn" },
+  { icon: <SkyToggle className="scale-50" />, label: "Day/Night Toggle" },
 ]
 
 const defaultLegalLinks = [
@@ -128,6 +130,7 @@ export const Footer = ({
                 </li>
               ))}
             </ul>
+                 
           </div>
           <div className="grid w-full gap-6 md:grid-cols-3 lg:gap-20">
             {sections.map((section, sectionIdx) => (
