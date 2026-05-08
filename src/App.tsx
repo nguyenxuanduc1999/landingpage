@@ -6,7 +6,7 @@ import { Footer } from './components/ui/footer';
 
 function App() {
   return (
-    <div className="bg-black min-h-screen text-white">
+    <div className="bg-black min-h-screen text-white overflow-x-clip">
       <Hero />
       <About />
       <Features />

@@ -17,7 +17,7 @@ interface Footer7Props {
   description?: string
   socialLinks?: Array<{
     icon: React.ReactElement
-    href: string
+    href?: string
     label: string
   }>
   copyright?: string
@@ -99,40 +99,46 @@ const defaultLegalLinks = [
 export const Footer = ({
   logo = {
     url: "https://www.xdn74.com",
-    src: "./public/logoXDN.png",
+    src: "/logoXDN.png",
     alt: "logo",
     title: "Xuan Duc Nguyen",
   },
   sections = defaultSections,
-  description = "A collection of my projects and my skills.",
+  description = "This is my personal project and my skills, and the button here is just for decoration.",
   socialLinks = defaultSocialLinks,
   copyright = `© ${new Date().getFullYear()} XDN. All rights reserved.`,
   legalLinks = defaultLegalLinks,
 }: Footer7Props) => {
   return (
-    <section className="py-32">
-      <div className="container mx-auto">
+    <section className="py-16 sm:py-24 lg:py-32 px-4 sm:px-6 lg:px-8">
+      <div className="container mx-auto max-w-6xl">
         <div className="flex w-full flex-col justify-between gap-10 lg:flex-row lg:items-start lg:text-left">
           <div className="flex w-full flex-col justify-between gap-6 lg:items-start">
-            <div className="flex items-center gap-2 lg:justify-start">
+            <div className="flex flex-wrap items-center gap-2 lg:justify-start">
               <a href={logo.url}>
                 <img src={logo.src} alt={logo.alt} title={logo.title} className="h-8 w-8 rounded object-cover" />
               </a>
-              <h2 className="text-xl font-semibold">{logo.title}</h2>
+              <h2 className="text-lg sm:text-xl font-semibold">{logo.title}</h2>
             </div>
-            <p className="max-w-[70%] text-sm text-muted-foreground">{description}</p>
-            <ul className="flex items-center space-x-6 text-muted-foreground">
+            <p className="max-w-full text-sm text-muted-foreground md:max-w-[70%]">{description}</p>
+            <ul className="flex flex-wrap items-center gap-x-6 gap-y-3 text-muted-foreground">
               {socialLinks.map((social, idx) => (
                 <li key={idx} className="font-medium hover:text-primary">
-                  <a href={social.href} aria-label={social.label}>
-                    {social.icon}
-                  </a>
+                  {social.href ? (
+                    <a href={social.href} target="_blank" rel="noopener noreferrer" aria-label={social.label}>
+                      {social.icon}
+                    </a>
+                  ) : (
+                    <span className="inline-flex items-center" aria-label={social.label}>
+                      {social.icon}
+                    </span>
+                  )}
                 </li>
               ))}
             </ul>
                  
           </div>
-          <div className="grid w-full gap-6 md:grid-cols-3 lg:gap-20">
+          <div className="grid w-full gap-8 sm:gap-6 sm:grid-cols-2 md:grid-cols-3 lg:gap-20">
             {sections.map((section, sectionIdx) => (
               <div key={sectionIdx}>
                 <h3 className="mb-4 font-bold">{section.title}</h3>

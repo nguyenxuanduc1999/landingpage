@@ -4,6 +4,8 @@ import type { Variants } from 'framer-motion';
 import { ArrowUpRight, Play, Clock, Globe } from 'lucide-react';
 import { BlurText } from './BlurText';
 
+const NAV_ITEMS = ['Home', 'Voyages', 'Worlds', 'Innovation', 'Plan Launch'] as const;
+
 export const Hero: React.FC = () => {
   const fadeUpVariant: Variants = {
     hidden: { filter: 'blur(10px)', opacity: 0, y: 20 },
@@ -35,16 +37,35 @@ export const Hero: React.FC = () => {
 
       <div className="relative z-10 flex flex-col min-h-screen">
         {/* Navbar */}
-        <div className="fixed top-4 left-0 right-0 px-8 lg:px-16 z-50 flex items-center justify-center">
-          {/* Left: Logo */}
-          {/* <div className="w-12 h-12 liquid-glass rounded-full flex items-center justify-center">
-            <span className="font-serif italic text-2xl text-white mt-1">XDN</span>
-          </div> */}
+        <div className="fixed top-0 left-0 right-0 z-50 pt-[max(1rem,env(safe-area-inset-top))] px-4 sm:px-8 lg:px-16 flex flex-col items-stretch gap-3 md:items-center">
+          {/* Mobile: scrollable links + CTA */}
+          <div className="flex items-center gap-2 md:hidden w-full max-w-lg mx-auto">
+            <div className="liquid-glass rounded-full py-1.5 pl-2 pr-1 min-w-0 flex-1 overflow-x-auto no-scrollbar">
+              <nav className="flex items-center gap-0.5 w-max">
+                {NAV_ITEMS.map((item) => (
+                  <a
+                    key={item}
+                    href={`#${item.toLowerCase().replace(' ', '-')}`}
+                    className="shrink-0 px-2.5 py-1.5 text-xs font-medium text-white/90 transition-colors hover:text-white rounded-full hover:bg-white/5"
+                  >
+                    {item}
+                  </a>
+                ))}
+              </nav>
+            </div>
+            <button
+              type="button"
+              className="shrink-0 bg-white text-black rounded-full px-3 py-2 text-xs font-semibold whitespace-nowrap flex items-center gap-1 transition-transform active:scale-95 sm:text-sm sm:px-4 sm:py-2"
+            >
+              Claim
+              <ArrowUpRight className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
+            </button>
+          </div>
 
-          {/* Center: Links (desktop only) */}
-          <div className="hidden md:flex liquid-glass rounded-full px-1.5 py-1.5 items-center">
+          {/* Desktop: centered pill */}
+          <div className="hidden md:flex liquid-glass rounded-full px-1.5 py-1.5 items-center justify-center">
             <nav className="flex items-center">
-              {['Home', 'Voyages', 'Worlds', 'Innovation', 'Plan Launch'].map((item) => (
+              {NAV_ITEMS.map((item) => (
                 <a
                   key={item}
                   href={`#${item.toLowerCase().replace(' ', '-')}`}
@@ -54,18 +75,18 @@ export const Hero: React.FC = () => {
                 </a>
               ))}
             </nav>
-            <button className="bg-white text-black rounded-full px-4 py-2 text-sm font-medium whitespace-nowrap flex items-center gap-1 ml-2 transition-transform hover:scale-105">
+            <button
+              type="button"
+              className="bg-white text-black rounded-full px-4 py-2 text-sm font-medium whitespace-nowrap flex items-center gap-1 ml-2 transition-transform hover:scale-105"
+            >
               Claim a Spot
               <ArrowUpRight className="w-4 h-4" />
             </button>
           </div>
-
-          {/* Right: Spacer */}
-          {/* <div className="w-12 h-12 invisible"></div> */}
         </div>
 
         {/* Hero content */}
-        <div className="flex-1 flex flex-col items-center justify-center pt-24 px-4 text-center">
+        <div className="flex-1 flex flex-col items-center justify-center pt-[max(6.5rem,env(safe-area-inset-top)+5rem)] sm:pt-28 md:pt-24 px-4 sm:px-6 text-center">
           {/*<motion.div
             custom={0.4}
             initial="hidden"
@@ -79,7 +100,7 @@ export const Hero: React.FC = () => {
 
           <BlurText
             text="Welcome to my website"
-            className="text-6xl md:text-7xl lg:text-[5.5rem] font-serif italic text-white leading-[0.8] max-w-2xl tracking-[-4px]"
+            className="text-[clamp(2.25rem,9vw,5.5rem)] sm:text-6xl md:text-7xl lg:text-[5.5rem] font-serif italic text-white leading-[0.85] sm:leading-[0.8] max-w-[min(100%,42rem)] px-1 tracking-[-0.03em] sm:tracking-[-0.04em] md:tracking-[-4px]"
           />
 
           <motion.p
@@ -87,7 +108,7 @@ export const Hero: React.FC = () => {
             initial="hidden"
             animate="visible"
             variants={fadeUpVariant}
-            className="mt-6 text-sm md:text-base text-white max-w-2xl font-light leading-tight"
+            className="mt-6 text-sm md:text-base text-white max-w-2xl font-light leading-snug sm:leading-tight px-1"
           >
             Nobody is truly perfect, so I am working hard to improve myself every day and become a better person—free from drama and scandal. Right now, I am living as if today could be my last. That’s partly why I always say, 'Thank you, for every morning that I wake up."
           </motion.p>
@@ -114,10 +135,10 @@ export const Hero: React.FC = () => {
             initial="hidden"
             animate="visible"
             variants={fadeUpVariant}
-            className="flex flex-col sm:flex-row items-stretch gap-4 mt-12"
+            className="flex flex-col sm:flex-row items-center sm:items-stretch gap-4 mt-10 sm:mt-12 w-full max-w-[28rem] sm:max-w-none"
           >
             {/* Card 1 */}
-            <div className="liquid-glass p-5 w-[220px] rounded-[1.25rem] text-left flex flex-col justify-between">
+            <div className="liquid-glass p-5 w-full max-w-[220px] sm:w-[220px] rounded-[1.25rem] text-left flex flex-col justify-between">
               <Clock className="w-7 h-7 text-white mb-6" strokeWidth={1.5} />
               <div>
                 <div className="font-serif italic text-white text-4xl tracking-[-1px] leading-none">34.5 Min</div>
@@ -126,7 +147,7 @@ export const Hero: React.FC = () => {
             </div>
 
             {/* Card 2 */}
-            <div className="liquid-glass p-5 w-[220px] rounded-[1.25rem] text-left flex flex-col justify-between">
+            <div className="liquid-glass p-5 w-full max-w-[220px] sm:w-[220px] rounded-[1.25rem] text-left flex flex-col justify-between">
               <Globe className="w-7 h-7 text-white mb-6" strokeWidth={1.5} />
               <div>
                 <div className="font-serif italic text-white text-4xl tracking-[-1px] leading-none">2.8B+</div>

@@ -35,25 +35,25 @@ export const Features: React.FC = () => {
         />
       </video>
 
-      <div className="relative z-10 px-8 md:px-16 lg:px-20 pt-24 pb-24 flex flex-col min-h-screen">
+      <div className="relative z-10 px-4 sm:px-8 md:px-16 lg:px-20 pt-20 sm:pt-24 pb-16 sm:pb-24 flex flex-col min-h-screen">
         {/* Header */}
         <div className="mb-auto">
-          <div className="text-sm font-body text-white/80 mb-6">// Capabilities</div>
-          <h2 className="font-serif italic text-white text-6xl md:text-7xl lg:text-[6rem] leading-[0.9] tracking-[-3px]">
+          <div className="text-xs sm:text-sm font-body text-white/80 mb-4 sm:mb-6">// Capabilities</div>
+          <h2 className="font-serif italic text-white text-[clamp(2.5rem,10vw,6rem)] md:text-7xl lg:text-[6rem] leading-[0.92] sm:leading-[0.9] tracking-[-0.02em] md:tracking-[-3px]">
             Production<br />evolved
           </h2>
         </div>
 
         {/* Three cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-16">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 mt-10 sm:mt-16">
           
           {/* Card 1 */}
-          <div className="liquid-glass rounded-[1.25rem] p-6 min-h-[360px] flex flex-col">
-            <div className="flex items-start justify-between gap-4">
+          <div className="liquid-glass rounded-[1.25rem] p-5 sm:p-6 min-h-0 md:min-h-[360px] flex flex-col">
+            <div className="flex items-start justify-between gap-3 sm:gap-4">
               <div className="w-11 h-11 shrink-0 liquid-glass rounded-[0.75rem] flex items-center justify-center">
                 <Card1Icon />
               </div>
-              <div className="flex flex-wrap justify-end gap-1.5 max-w-[70%]">
+              <div className="flex flex-wrap justify-end gap-1.5 max-w-[min(70%,14rem)] sm:max-w-[70%]">
                 {['Natural Context', 'Photo Realism', 'Infinite Settings', 'Eco-Vibe'].map(tag => (
                   <span key={tag} className="liquid-glass rounded-full px-3 py-1 text-[11px] text-white/90 font-body whitespace-nowrap">
                     {tag}
@@ -71,12 +71,12 @@ export const Features: React.FC = () => {
           </div>
 
           {/* Card 2 */}
-          <div className="liquid-glass rounded-[1.25rem] p-6 min-h-[360px] flex flex-col">
-            <div className="flex items-start justify-between gap-4">
+          <div className="liquid-glass rounded-[1.25rem] p-5 sm:p-6 min-h-0 md:min-h-[360px] flex flex-col">
+            <div className="flex items-start justify-between gap-3 sm:gap-4">
               <div className="w-11 h-11 shrink-0 liquid-glass rounded-[0.75rem] flex items-center justify-center">
                 <Card2Icon />
               </div>
-              <div className="flex flex-wrap justify-end gap-1.5 max-w-[70%]">
+              <div className="flex flex-wrap justify-end gap-1.5 max-w-[min(70%,14rem)] sm:max-w-[70%]">
                 {['Scale Fast', 'Visual Consistency', 'Time Saver', 'Ready to Post'].map(tag => (
                   <span key={tag} className="liquid-glass rounded-full px-3 py-1 text-[11px] text-white/90 font-body whitespace-nowrap">
                     {tag}
@@ -94,12 +94,12 @@ export const Features: React.FC = () => {
           </div>
 
           {/* Card 3 */}
-          <div className="liquid-glass rounded-[1.25rem] p-6 min-h-[360px] flex flex-col">
-            <div className="flex items-start justify-between gap-4">
+          <div className="liquid-glass rounded-[1.25rem] p-5 sm:p-6 min-h-0 md:min-h-[360px] flex flex-col">
+            <div className="flex items-start justify-between gap-3 sm:gap-4">
               <div className="w-11 h-11 shrink-0 liquid-glass rounded-[0.75rem] flex items-center justify-center">
                 <Card3Icon />
               </div>
-              <div className="flex flex-wrap justify-end gap-1.5 max-w-[70%]">
+              <div className="flex flex-wrap justify-end gap-1.5 max-w-[min(70%,14rem)] sm:max-w-[70%]">
                 {['Ray Tracing', 'Physical Shadows', 'Studio Quality', 'Sunlight Sync'].map(tag => (
                   <span key={tag} className="liquid-glass rounded-full px-3 py-1 text-[11px] text-white/90 font-body whitespace-nowrap">
                     {tag}
