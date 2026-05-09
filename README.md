@@ -1,4 +1,4 @@
-# Xuan Duc Nguyen – Cinematic Portfolio & Landing Page
+# Xuan Duc Nguyen – Cinematic Portfolio & Landing Page.
 
 A high-fidelity, cinematic React landing page featuring "liquid-glass" aesthetics, continuous light refraction effects, and dynamic scroll animations. This project serves as a digital portfolio and creative studio showcase, designed to feel premium, moody, and deeply immersive.
 
