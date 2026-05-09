@@ -104,7 +104,7 @@ export const Footer = ({
     title: "Xuan Duc Nguyen",
   },
   sections = defaultSections,
-  description = "This is my personal project and my skills, and the button here is just for decoration.",
+  description = "This is my personal project and my skills. The Toggle button here is just for decoration.",
   socialLinks = defaultSocialLinks,
   copyright = `© ${new Date().getFullYear()} XDN. All rights reserved.`,
   legalLinks = defaultLegalLinks,

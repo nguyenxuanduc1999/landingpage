@@ -55,7 +55,7 @@ const logos = [
 export function LogosSlider() {
   return (
     <div className="relative h-[140px] md:h-[170px] w-full overflow-hidden">
-      <InfiniteSlider className="flex h-full w-full items-center" duration={30} gap={48}>
+      <InfiniteSlider className="flex h-full w-full items-center" duration={30} gap={0}>
         {logos.map((logo) => (
           <div key={logo.id} className="flex w-40 md:w-48 items-center justify-center">
             <img src={logo.image} alt={logo.description} className={logo.className} />
