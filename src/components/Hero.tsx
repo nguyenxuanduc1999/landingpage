@@ -1,13 +1,17 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import type { Variants } from 'framer-motion';
 import { ArrowUpRight, Play } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 import { LogosSlider } from '@/components/ui/logos-slider';
 import { BlurText } from './BlurText';
+import { LoginComponent } from '@/components/ui/login';
 
 const NAV_ITEMS = ['Home', 'Voyages', 'Worlds', 'Innovation', 'Plan Launch'] as const;
 
 export const Hero: React.FC = () => {
+  const [isLoginOpen, setIsLoginOpen] = useState(false);
+  const navigate = useNavigate();
   const fadeUpVariant: Variants = {
     hidden: { filter: 'blur(10px)', opacity: 0, y: 20 },
     visible: (customDelay: number) => ({
@@ -56,6 +60,7 @@ export const Hero: React.FC = () => {
             </div>
             <button
               type="button"
+              onClick={() => navigate('/login')}
               className="shrink-0 bg-white text-black rounded-full px-3 py-2 text-xs font-semibold whitespace-nowrap flex items-center gap-1 transition-transform active:scale-95 sm:text-sm sm:px-4 sm:py-2"
             >
               Claim
@@ -78,6 +83,7 @@ export const Hero: React.FC = () => {
             </nav>
             <button
               type="button"
+              onClick={() => navigate('/login')}
               className="bg-white text-black rounded-full px-4 py-2 text-sm font-medium whitespace-nowrap flex items-center gap-1 ml-2 transition-transform hover:scale-105"
             >
               Claim a Spot
@@ -168,6 +174,19 @@ export const Hero: React.FC = () => {
           */}
         </motion.div>
       </div>
+
+      <AnimatePresence>
+        {isLoginOpen && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-[100]"
+          >
+            <LoginComponent onClose={() => setIsLoginOpen(false)} />
+          </motion.div>
+        )}
+      </AnimatePresence>
     </section>
   );
 };
