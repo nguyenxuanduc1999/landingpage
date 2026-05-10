@@ -3,14 +3,14 @@ import { InfiniteSlider } from "@/components/ui/infinite-slider";
 const logos = [
   {
     id: "logo-2",
-    description: "Figma",
-    image: "https://www.shadcnblocks.com/images/block/logos/figma.svg",
+    description: "Nginx",
+    image: "https://nginx.org/img/nginx_logo.svg",
     className: "h-10 md:h-12 w-auto",
   },
   {
     id: "logo-3",
-    description: "Next.js",
-    image: "https://www.shadcnblocks.com/images/block/logos/nextjs.svg",
+    description: "C++",
+    image: "https://upload.wikimedia.org/wikipedia/commons/1/18/ISO_C%2B%2B_Logo.svg",
     className: "h-10 md:h-12 w-auto",
   },
   {
