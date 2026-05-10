@@ -296,20 +296,6 @@ export const AuthComponent = ({ logo = <DefaultLogo />, brandName = "EaseMize", 
 
       <Confetti ref={confettiRef} manualstart className="fixed top-0 left-0 w-full h-full pointer-events-none z-[999]" />
       <Modal />
-
-      <div className={cn("fixed top-4 left-1/2 -translate-x-1/2 z-[60] flex items-center gap-2 select-none")}>
-        {logo ? logo : (
-          <img
-            src="/logoXDN.png"
-            alt="Logo XDN"
-            className="h-10 w-10 object-contain"
-            draggable={false}
-          />
-        )}
-  
-        <h1 className="text-base font-bold text-foreground">{brandName}</h1>
-      </div>
-
       <div
         className={cn(
           "flex w-full flex-1 h-full items-center justify-center bg-card",
