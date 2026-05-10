@@ -297,7 +297,7 @@ export const AuthComponent = ({ logo = <DefaultLogo />, brandName = "EaseMize", 
       <Confetti ref={confettiRef} manualstart className="fixed top-0 left-0 w-full h-full pointer-events-none z-[999]" />
       <Modal />
 
-      <div className={cn("fixed top-4 left-4 z-20 flex items-center gap-2", "md:left-1/2 md:-translate-x-1/2")}>
+      <div className={cn("fixed top-4 left-1/2 -translate-x-1/2 z-20 flex items-center gap-2")}>
         {logo}
         <h1 className="text-base font-bold text-foreground">{brandName}</h1>
       </div>
@@ -309,7 +309,7 @@ export const AuthComponent = ({ logo = <DefaultLogo />, brandName = "EaseMize", 
           particleBackground && "main-particles-component-section",
         )}
       >
-        <div className={cn("absolute inset-0 z-0", particleBackground && "main-particles-container")}>
+        <div className={cn("absolute inset-0 z-0 origin-center scale-[1.5] md:scale-100", particleBackground && "main-particles-container")}>
           {particleBackground ? <MainParticles theme="light" className="h-full w-full" /> : <GradientBackground />}
         </div>
         <fieldset disabled={modalStatus !== 'closed'} className="relative z-10 flex flex-col items-center gap-8 w-[280px] mx-auto p-4">
