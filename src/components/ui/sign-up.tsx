@@ -3,10 +3,11 @@ import React, { useState, useRef, useEffect, forwardRef, useImperativeHandle, us
 // Importing class-variance-authority for the built-in button component
 import { cva, type VariantProps } from "class-variance-authority";
 // Importing icons from lucide-react
-import { ArrowRight, Mail, Gem, Lock, Eye, EyeOff, ArrowLeft, X, AlertCircle, PartyPopper, Loader } from "lucide-react";
+import { ArrowRight, Mail, Lock, Eye, EyeOff, ArrowLeft, X, AlertCircle, PartyPopper, Loader } from "lucide-react";
 // Importing animation components from framer-motion
 import { AnimatePresence, motion, useInView } from "framer-motion";
 import type { Variants, Transition } from "framer-motion";
+import { Link } from "react-router-dom";
 import { MainParticles } from "@/components/MainParticles";
 
 // --- CONFETTI LOGIC ---
@@ -156,17 +157,13 @@ const modalSteps = [
 ];
 const TEXT_LOOP_INTERVAL = 1.5;
 
-const DefaultLogo = () => (<div className="bg-primary text-primary-foreground rounded-md p-1.5"> <Gem className="h-4 w-4" /> </div>);
-
 // --- MAIN COMPONENT ---
 interface AuthComponentProps {
-  logo?: React.ReactNode;
-  brandName?: string;
   /** Use Three.js particle canvas (like landing-main-particles) instead of SVG gradient. */
   particleBackground?: boolean;
 }
 
-export const AuthComponent = ({ logo = <DefaultLogo />, brandName = "EaseMize", particleBackground = false }: AuthComponentProps) => {
+export const AuthComponent = ({ particleBackground = false }: AuthComponentProps) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
@@ -296,6 +293,7 @@ export const AuthComponent = ({ logo = <DefaultLogo />, brandName = "EaseMize", 
 
       <Confetti ref={confettiRef} manualstart className="fixed top-0 left-0 w-full h-full pointer-events-none z-[999]" />
       <Modal />
+
       <div
         className={cn(
           "flex w-full flex-1 h-full items-center justify-center bg-card",
@@ -382,6 +380,13 @@ export const AuthComponent = ({ logo = <DefaultLogo />, brandName = "EaseMize", 
               </BlurFade>}
             </AnimatePresence>
           </form>
+          <Link
+            to="/"
+            className="mt-6 flex w-[300px] items-center justify-center gap-2 text-sm text-foreground/70 hover:text-foreground transition-colors"
+          >
+            <ArrowLeft className="w-4 h-4" />
+            Back to Home
+          </Link>
         </fieldset>
       </div>
     </div>

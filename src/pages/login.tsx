@@ -8,11 +8,7 @@ export default function CustomAuthDemo() {
       <meta name="apple-mobile-web-app-capable" content="yes" />
       <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
       <div className="bg-white min-h-screen text-black">
-        <AuthComponent
-          particleBackground
-          // logo={<img src="/logoXDN.png" alt="Logo" className="h-20 w-20" />}
-          // brandName=""
-        />
+        <AuthComponent particleBackground />
         <Footer forceLightMode />
       </div>
     </>

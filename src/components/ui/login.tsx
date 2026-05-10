@@ -1,5 +1,6 @@
 import { cn } from "@/lib/utils";
 import React, { useState, useRef, useEffect, forwardRef, useImperativeHandle, useMemo, useCallback, Children } from "react";
+import { Link } from "react-router-dom";
 // Importing class-variance-authority for the built-in button component
 import { cva, type VariantProps } from "class-variance-authority";
 // Importing icons from lucide-react
@@ -286,9 +287,19 @@ useEffect(() => {
         <Confetti ref={confettiRef} manualstart className="fixed top-0 left-0 w-full h-full pointer-events-none z-[999]" />
         <Modal />
 
-        <div className={cn( "absolute top-4 left-4 z-20 flex items-center gap-2", "md:left-1/2 md:-translate-x-1/2" )}>
-            {logo}
-            <h1 className="text-base font-bold text-foreground">{brandName}</h1>
+        <div className={cn( "absolute top-4 left-4 z-20 flex flex-col items-start gap-2", "md:left-1/2 md:-translate-x-1/2 md:items-center" )}>
+            <div className="flex items-center gap-2">
+                {logo}
+                <h1 className="text-base font-bold text-foreground">{brandName}</h1>
+            </div>
+            <Link
+                to="/"
+                onClick={() => onClose?.()}
+                className="flex items-center gap-2 text-sm text-foreground/70 hover:text-foreground transition-colors"
+            >
+                <ArrowLeft className="w-4 h-4" />
+                Back to Home
+            </Link>
         </div>
 
         {onClose && (
