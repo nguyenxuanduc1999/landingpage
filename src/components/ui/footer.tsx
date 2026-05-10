@@ -2,6 +2,7 @@ import React from "react"
 import { Mail, MapPin, Phone } from "lucide-react"
 import { FaFacebook, FaInstagram, FaLinkedin } from "react-icons/fa"
 import { SkyToggle } from "./sky-toggle"
+import { cn } from "@/lib/utils"
 
 interface Footer7Props {
   logo?: {
@@ -25,6 +26,7 @@ interface Footer7Props {
     name: string
     href: string
   }>
+  forceLightMode?: boolean
 }
 
 const defaultSections = [
@@ -108,9 +110,16 @@ export const Footer = ({
   socialLinks = defaultSocialLinks,
   copyright = `© ${new Date().getFullYear()} XDN. All rights reserved.`,
   legalLinks = defaultLegalLinks,
+  forceLightMode = false,
 }: Footer7Props) => {
   return (
-    <section className="py-16 sm:py-24 lg:py-32 px-4 sm:px-6 lg:px-8">
+    <section
+      className={cn(
+        "py-16 sm:py-24 lg:py-32 px-4 sm:px-6 lg:px-8",
+        forceLightMode &&
+          "bg-white text-slate-900 [&_.text-muted-foreground]:!text-slate-600 [&_.border-t]:!border-slate-200 [&_.hover\\:text-primary:hover]:!text-slate-900",
+      )}
+    >
       <div className="container mx-auto max-w-6xl">
         <div className="flex w-full flex-col justify-between gap-10 lg:flex-row lg:items-start lg:text-left">
           <div className="flex w-full flex-col justify-between gap-6 lg:items-start">
