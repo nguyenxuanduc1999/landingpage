@@ -9,7 +9,7 @@ export default function CustomAuthDemo() {
       <div className="bg-white min-h-screen text-black">
         <AuthComponent
           particleBackground
-          logo={<img src="./public/logoXDN.png" alt="Logo" className="h-20 w-20" />}
+          logo={<img src="/logoXDN.png" alt="Logo" className="h-20 w-20" />}
           brandName=""
         />
       </div>
