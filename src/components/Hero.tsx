@@ -7,7 +7,7 @@ import { LogosSlider } from '@/components/ui/logos-slider';
 import { BlurText } from './BlurText';
 import { LoginComponent } from '@/components/ui/login';
 
-const NAV_ITEMS = ['Home', 'Voyages', 'Worlds', 'Innovation', 'Plan Launch'] as const;
+const NAV_ITEMS = ['Home', 'Voyages', 'Innovation'] as const;
 
 export const Hero: React.FC = () => {
   const [isLoginOpen, setIsLoginOpen] = useState(false);
