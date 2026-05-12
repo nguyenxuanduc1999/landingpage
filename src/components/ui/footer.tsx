@@ -92,7 +92,7 @@ const defaultSections = [
 const defaultSocialLinks = [
   { icon: <FaInstagram className="size-5" />, href: "https://www.instagram.com/xdn74/", label: "Instagram" },
   { icon: <FaFacebook className="size-5" />, href: "https://www.facebook.com/xdn74/", label: "Facebook" },
-  { icon: <FaYoutube className="size-5" />, href: "https://www.youtube.com/xdn74/", label: "Youtube" },
+  { icon: <FaYoutube className="size-5" />, href: "https://www.youtube.com//@xdn74", label: "Youtube" },
   { icon: <FaLinkedin className="size-5" />, href: "https://www.linkedin.com/in/xdn/", label: "LinkedIn" },
 ]
 
