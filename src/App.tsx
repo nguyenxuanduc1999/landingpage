@@ -1,5 +1,6 @@
 
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { SiteNav } from './components/SiteNav';
 import { Hero } from './components/Hero';
 import { About } from './components/About';
 import { Features } from './components/Features';
@@ -12,6 +13,7 @@ function App() {
       <Routes>
         <Route path="/" element={
           <div className="bg-black min-h-screen text-white overflow-x-clip">
+            <SiteNav />
             <Hero />
             <About />
             <Features />

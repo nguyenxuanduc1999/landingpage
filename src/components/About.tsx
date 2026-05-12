@@ -4,7 +4,7 @@ import { ScrollLinkedText } from './ScrollLinkedText';
 
 export const About: React.FC = () => {
   return (
-    <section className="w-full px-4 sm:px-6 md:px-8 relative z-20 -mt-16 sm:-mt-24 md:-mt-32 pt-16 sm:pt-20 md:pt-24 pb-4 bg-gradient-to-b from-transparent via-black/90 to-transparent backdrop-blur-xl [-webkit-mask-image:linear-gradient(to_bottom,transparent,black_15%,black_calc(100%-16px),transparent)] [mask-image:linear-gradient(to_bottom,transparent,black_15%,black_calc(100%-16px),transparent)]">
+    <section className="w-full px-4 md:px-6 relative z-20 -mt-32 pt-24 pb-4 bg-gradient-to-b from-transparent via-black/90 to-transparent backdrop-blur-xl [-webkit-mask-image:linear-gradient(to_bottom,transparent,black_15%,black_calc(100%-16px),transparent)] [mask-image:linear-gradient(to_bottom,transparent,black_15%,black_calc(100%-16px),transparent)]">
       <div className="liquid-glass rounded-2xl md:rounded-[2rem] p-8 sm:p-12 md:p-16 lg:p-24 max-w-6xl mx-auto flex flex-col items-center justify-center text-center gap-8 md:gap-12">
         <span className="text-primary text-[10px] sm:text-xs uppercase tracking-widest font-medium">
           A little about me

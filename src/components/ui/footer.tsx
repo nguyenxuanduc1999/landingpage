@@ -1,6 +1,6 @@
 import React from "react"
 import { Mail, MapPin, Phone } from "lucide-react"
-import { FaFacebook, FaInstagram, FaLinkedin } from "react-icons/fa"
+import { FaFacebook, FaInstagram, FaLinkedin, FaYoutube } from "react-icons/fa"
 import { SkyToggle } from "./sky-toggle"
 import { cn } from "@/lib/utils"
 
@@ -39,39 +39,43 @@ const defaultSections = [
   //     { name: "Features", href: "#" },
   //   ],
   // },
-  // {
-  //   title: "Company",
-  //   links: [
-  //     { name: "About", href: "#" },
-  //     { name: "Team", href: "#" },
-  //     { name: "Blog", href: "#" },
-  //     { name: "Careers", href: "#" },
-  //   ],
-  // },
+  {
+    title: "Content",
+    links: [
+      { name: "www.xdn74.com", href: "https://www.xdn74.com" },
+      // { name: "Team", href: "#" },
+      // { name: "Blog", href: "#" },
+      // { name: "Careers", href: "#" },
+    ],
+  },
   {
     title: "Contact",
     links: [
-      
-      { 
+
+      {
         name: (
           <span className="flex items-center">
             <MapPin className="mr-2 h-5 w-5" />
             Karlsruhe
           </span>
-        ), 
-        href: "#" 
+        ),
+        href: "#"
       },
- 
-      { name: <a href="mailto:duc@xdn74.com" className="flex items-center hover:text-primary">
-        <Mail className="mr-2 h-5 w-5" />
-        duc@xdn74.com
-      </a>, href: "#" },
-      { name: (
-        <span className="flex items-center">
-          <Phone className="mr-2 h-5 w-5" />
-          +49
-        </span>
-      ), href: "#" },
+
+      {
+        name: <a href="mailto:duc@xdn74.com" className="flex items-center hover:text-primary">
+          <Mail className="mr-2 h-5 w-5" />
+          duc@xdn74.com
+        </a>, href: "#"
+      },
+      {
+        name: (
+          <span className="flex items-center">
+            <Phone className="mr-2 h-5 w-5" />
+            +49
+          </span>
+        ), href: "#"
+      },
     ],
   },
   // {
@@ -88,9 +92,8 @@ const defaultSections = [
 const defaultSocialLinks = [
   { icon: <FaInstagram className="size-5" />, href: "https://www.instagram.com/xdn74/", label: "Instagram" },
   { icon: <FaFacebook className="size-5" />, href: "https://www.facebook.com/xdn74/", label: "Facebook" },
-  // { icon: <FaTwitter className="size-5" />, href: "#", label: "Twitter" },
+  { icon: <FaYoutube className="size-5" />, href: "https://www.youtube.com/xdn74/", label: "Youtube" },
   { icon: <FaLinkedin className="size-5" />, href: "https://www.linkedin.com/in/xdn/", label: "LinkedIn" },
-  { icon: <SkyToggle className="scale-50" />, label: "Day/Night Toggle" },
 ]
 
 const defaultLegalLinks = [
@@ -117,7 +120,7 @@ export const Footer = ({
       className={cn(
         "py-16 sm:py-24 lg:py-32 px-4 sm:px-6 lg:px-8",
         forceLightMode &&
-          "bg-white text-slate-900 [&_.text-muted-foreground]:!text-slate-600 [&_.border-t]:!border-slate-200 [&_.hover\\:text-primary:hover]:!text-slate-900",
+        "bg-white text-slate-900 [&_.text-muted-foreground]:!text-slate-600 [&_.border-t]:!border-slate-200 [&_.hover\\:text-primary:hover]:!text-slate-900",
       )}
     >
       <div className="container mx-auto max-w-6xl">
@@ -130,23 +133,28 @@ export const Footer = ({
               <h2 className="text-lg sm:text-xl font-semibold">{logo.title}</h2>
             </div>
             <p className="max-w-full text-sm text-muted-foreground md:max-w-[70%]">{description}</p>
-            <ul className="flex flex-wrap items-center gap-x-6 gap-y-3 text-muted-foreground">
-              {socialLinks.map((social, idx) => (
-                <li key={idx} className="font-medium hover:text-primary">
-                  {social.href ? (
-                    <a href={social.href} target="_blank" rel="noopener noreferrer" aria-label={social.label}>
-                      {social.icon}
-                    </a>
-                  ) : (
-                    <span className="inline-flex items-center" aria-label={social.label}>
-                      {social.icon}
-                    </span>
-                  )}
-                </li>
-              ))}
-            </ul>
-                 
+            <div className="flex flex-row flex-wrap items-center gap-6">
+              <ul className="flex flex-wrap items-center gap-x-6 gap-y-3 text-muted-foreground">
+                {socialLinks.map((social, idx) => (
+                  <li key={idx} className="font-medium hover:text-primary">
+                    {social.href ? (
+                      <a href={social.href} target="_blank" rel="noopener noreferrer" aria-label={social.label}>
+                        {social.icon}
+                      </a>
+                    ) : (
+                      <span className="inline-flex items-center" aria-label={social.label}>
+                        {social.icon}
+                      </span>
+                    )}
+                  </li>
+                ))}
+              </ul>
+              <div className="shrink-0">
+                <SkyToggle className="scale-50" />
+              </div>
+            </div>
           </div>
+
           <div className="grid w-full gap-8 sm:gap-6 sm:grid-cols-2 md:grid-cols-3 lg:gap-20">
             {sections.map((section, sectionIdx) => (
               <div key={sectionIdx}>
