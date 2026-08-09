@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import type { Variants } from 'framer-motion';
-import { ArrowUpRight, Play } from 'lucide-react';
+import { ArrowUpRight } from 'lucide-react';
 import { LogosSlider } from '@/components/ui/logos-slider';
 import { BlurText } from './BlurText';
 import { LoginComponent } from '@/components/ui/login';
@@ -75,10 +75,6 @@ export const Hero: React.FC = () => {
             <button className="liquid-glass-strong rounded-full px-5 py-2.5 text-sm font-medium text-white flex items-center gap-2 hover:bg-white/10 transition-colors">
               Start Your Voyage
               <ArrowUpRight className="h-5 w-5" />
-            </button>
-            <button className="flex items-center gap-2 text-sm font-medium text-white hover:text-white/80 transition-colors">
-              View Liftoff
-              <Play className="h-4 w-4 fill-current" />
             </button>
           </motion.div>
 
