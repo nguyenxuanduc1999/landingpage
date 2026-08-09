@@ -19,7 +19,7 @@ export const Hero: React.FC = () => {
   };
 
   return (
-    <section className="min-h-screen w-full bg-black relative flex flex-col overflow-hidden">
+    <section id="home" className="min-h-screen w-full bg-black relative flex flex-col overflow-hidden">
       <div className="absolute top-0 left-1/2 -translate-x-1/2 z-0 object-cover object-top" style={{ width: "120%", height: "120%" }}>
         <video
           autoPlay

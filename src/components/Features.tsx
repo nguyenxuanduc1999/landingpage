@@ -20,7 +20,7 @@ const Card3Icon = () => (
 
 export const Features: React.FC = () => {
   return (
-    <section className="min-h-screen bg-black relative flex flex-col overflow-hidden">
+    <section id="capabilities" className="min-h-screen bg-black relative flex flex-col overflow-hidden">
       {/* Background video */}
       <video
         autoPlay

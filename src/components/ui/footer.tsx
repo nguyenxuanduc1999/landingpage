@@ -63,10 +63,13 @@ const defaultSections = [
       },
 
       {
-        name: <a href="mailto:duc@xdn74.com" className="flex items-center hover:text-primary">
-          <Mail className="mr-2 h-5 w-5" />
-          duc@xdn74.com
-        </a>, href: "#"
+        name: (
+          <span className="flex items-center">
+            <Mail className="mr-2 h-5 w-5" />
+            duc@xdn74.com
+          </span>
+        ),
+        href: "mailto:duc@xdn74.com"
       },
       {
         name: (
@@ -117,6 +120,7 @@ export const Footer = ({
 }: Footer7Props) => {
   return (
     <section
+      id="contact"
       className={cn(
         "py-16 sm:py-24 lg:py-32 px-4 sm:px-6 lg:px-8",
         forceLightMode &&

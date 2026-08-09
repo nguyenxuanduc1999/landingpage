@@ -2,7 +2,7 @@ import React from 'react';
 import { ArrowUpRight } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 
-const NAV_ITEMS = ['Home', 'Voyages', 'Innovation', 'Plan Launch'] as const;
+const NAV_ITEMS = ['Home', 'About', 'Capabilities', 'Contact'] as const;
 
 export const SiteNav: React.FC = () => {
   const navigate = useNavigate();
