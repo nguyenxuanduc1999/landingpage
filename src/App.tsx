@@ -6,6 +6,8 @@ import { About } from './components/About';
 import { Features } from './components/Features';
 import { Footer } from './components/ui/footer';
 import CustomAuthDemo from './pages/login';
+import TermsPage from './pages/terms';
+import PrivacyPage from './pages/privacy';
 
 function App() {
   return (
@@ -21,6 +23,8 @@ function App() {
           </div>
         } />
         <Route path="/login" element={<CustomAuthDemo />} />
+        <Route path="/terms" element={<TermsPage />} />
+        <Route path="/privacy" element={<PrivacyPage />} />
       </Routes>
     </Router>
   );

@@ -3,6 +3,7 @@ import { Mail, MapPin, Phone } from "lucide-react"
 import { FaFacebook, FaInstagram, FaLinkedin, FaYoutube } from "react-icons/fa"
 import { SkyToggle } from "./sky-toggle"
 import { cn } from "@/lib/utils"
+import { Link } from "react-router-dom"
 
 interface Footer7Props {
   logo?: {
@@ -100,8 +101,8 @@ const defaultSocialLinks = [
 ]
 
 const defaultLegalLinks = [
-  { name: "Terms and Conditions", href: "#" },
-  { name: "Privacy Policy", href: "#" },
+  { name: "Terms and Conditions", href: "/terms" },
+  { name: "Privacy Policy", href: "/privacy" },
 ]
 
 export const Footer = ({
@@ -179,7 +180,11 @@ export const Footer = ({
           <ul className="order-1 flex flex-col gap-2 md:order-2 md:flex-row">
             {legalLinks.map((link, idx) => (
               <li key={idx} className="hover:text-primary">
-                <a href={link.href}>{link.name}</a>
+                {link.href.startsWith("/") ? (
+                  <Link to={link.href}>{link.name}</Link>
+                ) : (
+                  <a href={link.href}>{link.name}</a>
+                )}
               </li>
             ))}
           </ul>
